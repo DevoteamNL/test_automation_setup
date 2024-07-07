@@ -1,11 +1,11 @@
 import re
+import time
 from playwright.sync_api import Page, expect
 
 
 def test_example(page: Page) -> None:
     page.goto("https://menzis.nl/zorgvinder")
     # page.get_by_role("button", name="Accept All Cookies").click()
-    import time
     time.sleep(3)
     page.get_by_placeholder("Bijvoorbeeld: Fysiotherapie").click()
     time.sleep(2)
