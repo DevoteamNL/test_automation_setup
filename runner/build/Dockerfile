@@ -1,11 +1,9 @@
-FROM python:3.10
+FROM python:3.12
 
 USER root
 
-RUN apt-get update && apt-get install -yy nano curl && \
-    pip install Appium-Python-Client pytest-playwright && \
-    playwright install --with-deps
-    
+RUN apt-get update && apt-get install -yy nano curl git
+
 WORKDIR /test
 
 ENV PYTHONDONTWRITEBYTECODE 1 \
