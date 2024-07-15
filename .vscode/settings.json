@@ -1,0 +1,10 @@
+{
+  "python.testing.pytestArgs": [
+    "runner/mount",
+    "--browser=firefox",
+    "--headed"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "peacock.remoteColor": "#007fff"
+}
