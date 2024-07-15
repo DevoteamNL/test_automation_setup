@@ -41,6 +41,8 @@ By participating in this hands-on experience, you have gained knowledge in how t
 
 ## Troubleshooting F.A.Q
 
+## Recommended extensions
+
 ### Windows
 
 ### Linux
@@ -53,3 +55,4 @@ By participating in this hands-on experience, you have gained knowledge in how t
 
 xhost local:docker
 xhost +
+source .venv/bin/activate && pip install Appium-Python-Client pytest-playwright && playwright install --with-deps
