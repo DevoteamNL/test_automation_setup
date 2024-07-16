@@ -6,5 +6,6 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
+  "python.testing.pytestPath": "/usr/local/bin/pytest",
   "peacock.remoteColor": "#007fff"
 }
