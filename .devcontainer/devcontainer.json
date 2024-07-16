@@ -18,7 +18,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "python3 -m venv .venv && apt-get -y install docker",
+	"postCreateCommand": "apt-get -y install docker",
   "runArgs": [ "--privileged", "-e DISPLAY=0"],
   "customizations": {
       "vscode": {
