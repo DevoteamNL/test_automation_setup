@@ -2,7 +2,9 @@
   "python.testing.pytestArgs": [
     "runner/mount",
     "--browser=firefox",
-    "--headed"
+    "--headed",
+    "--html=playwright-report.html",
+    "--self-contained-html"
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
