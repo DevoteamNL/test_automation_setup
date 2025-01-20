@@ -1,0 +1,63 @@
+{
+  "name": "Playwright Development Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "workbench.colorCustomizations": {
+          "activityBar.activeBackground": "#45c911",
+          "activityBar.background": "#45c911",
+          "activityBar.foreground": "#15202b",
+          "activityBar.inactiveForeground": "#15202b99",
+          "activityBarBadge.background": "#3166ee",
+          "activityBarBadge.foreground": "#e7e7e7",
+          "commandCenter.border": "#e7e7e799",
+          "sash.hoverBorder": "#45c911",
+          "statusBar.background": "#359a0d",
+          "statusBar.foreground": "#e7e7e7",
+          "statusBarItem.hoverBackground": "#45c911",
+          "statusBarItem.remoteBackground": "#359a0d",
+          "statusBarItem.remoteForeground": "#e7e7e7",
+          "titleBar.activeBackground": "#359a0d",
+          "titleBar.activeForeground": "#e7e7e7",
+          "titleBar.inactiveBackground": "#359a0d99",
+          "titleBar.inactiveForeground": "#e7e7e799"
+        }
+      },
+      "extensions": [
+        "ms-playwright.playwright",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+  "remoteUser": "ubuntu",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=/home/${localEnv:USER}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly"
+  ],
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+    "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}"
+  },
+  "runArgs": [
+    "--hostname=devcontainer",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
+    "--volume=${localEnv:XDG_RUNTIME_DIR}/${localEnv:WAYLAND_DISPLAY}:/tmp/${localEnv:WAYLAND_DISPLAY}",
+    "--privileged",
+    "--userns=keep-id:uid=1000,gid=1000",
+
+    "--network=host" // Make it seem like there is no container but we are directly on the host
+  ],
+  "capAdd": ["SYS_ADMIN"],
+  "securityOpt": ["seccomp=unconfined","no-new-privileges=false"]
+}
