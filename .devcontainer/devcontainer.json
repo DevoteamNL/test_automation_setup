@@ -4,7 +4,7 @@
   //   "dockerfile": "Dockerfile",
   //   "context": "."
   // },
-  "image": "ghcr.io/devoteamnl/test-automation-toolset:0.0.3",
+  "image": "ghcr.io/devoteamnl/test-automation-toolset:0.0.4",
   "customizations": {
     "vscode": {
       "settings": {
