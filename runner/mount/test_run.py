@@ -1,14 +1,26 @@
 import re
+import time
 from playwright.sync_api import Page, expect
 
 
 def test_example(page: Page) -> None:
-    page.goto("https://myprivacy.dpgmedia.nl/consent?siteKey=ucf98legs1caotgh&callbackUrl=https%3A%2F%2Fwww.nu.nl%2Fprivacy-gate%2Faccept%3FredirectUri%3D%252F")
-    page.frame_locator("iframe[title=\"SP Consent Message\"]").get_by_label("Akkoord").click()
-    page.get_by_label("sluit venster").click()
-    page.get_by_role("link", name="Astronomen zijn erachter").first.click()
-    page.get_by_label("Hoofdnavigatie").get_by_label("Sport").click()
-    page.get_by_role("link", name="Barcelona-trainer Xavi").first.click()
-    with page.expect_popup() as page1_info:
-        page.get_by_alt_text("Barcelona-trainer Xavi").click()
-    page1 = page1_info.value
+    page.goto("https://menzis.nl/zorgvinder")
+    # page.get_by_role("button", name="Accept All Cookies").click()
+    time.sleep(3)
+    page.get_by_placeholder("Bijvoorbeeld: Fysiotherapie").click()
+    time.sleep(2)
+    page.get_by_placeholder("Bijvoorbeeld: Fysiotherapie").fill("Ziekenhuis")
+    # Simuleer een spatie
+    page.keyboard.press("Space")
+    time.sleep(2)  # even wachten om ervoor te zorgen dat het effect heeft
+    page.get_by_text("Ziekenhuis / ZBC").click()
+    time.sleep(3)
+    page.get_by_placeholder("Postcode of woonplaats").click()
+    page.get_by_placeholder("Postcode of woonplaats").fill("Bedum")
+    # Simuleer een spatie
+    page.keyboard.press("Space")
+    time.sleep(2)  # even wachten om ervoor te zorgen dat het effect heeft
+    page.get_by_text("Bedum").click()
+    page.get_by_role("combobox").select_option("50")
+    page.get_by_role("button", name="Zoeken").click()
+    time.sleep(3)
