@@ -1,9 +1,10 @@
 {
   "name": "Playwright Development Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
+  // "build": {
+  //   "dockerfile": "Dockerfile",
+  //   "context": "."
+  // },
+  "image": "ghcr.io/devoteamnl/test-automation-toolset:0.0.3",
   "customizations": {
     "vscode": {
       "settings": {
@@ -54,7 +55,7 @@
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
     "--volume=${localEnv:XDG_RUNTIME_DIR}/${localEnv:WAYLAND_DISPLAY}:/tmp/${localEnv:WAYLAND_DISPLAY}",
     "--privileged",
-    "--userns=keep-id:uid=1000,gid=1000",
+    // "--userns=keep-id:uid=1000,gid=1000",
 
     "--network=host" // Make it seem like there is no container but we are directly on the host
   ],
