@@ -34,16 +34,18 @@
         "ms-playwright.playwright",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "streetsidesoftware.code-spell-checker"
+        "ms-azuretools.vscode-docker",
+        "github.vscode-github-actions"
       ]
     }
   },
   "remoteUser": "ubuntu",
   "updateRemoteUserUID": true,
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/home/ubuntu/workspace",
   "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "source=/home/${localEnv:USER}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly"
+    "source=${localWorkspaceFolder},target=/home/ubuntu/workspace,type=bind,consistency=consistent",
+    "source=/home/${localEnv:USER}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly",
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,readonly"
   ],
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}",
@@ -55,7 +57,7 @@
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
     "--volume=${localEnv:XDG_RUNTIME_DIR}/${localEnv:WAYLAND_DISPLAY}:/tmp/${localEnv:WAYLAND_DISPLAY}",
     "--privileged",
-    // "--userns=keep-id:uid=1000,gid=1000",
+    // "--userns=keep-id:uid=1000,gid=1000", // Keep the user id and group id the same as the host in Podman rootless setup
 
     "--network=host" // Make it seem like there is no container but we are directly on the host
   ],

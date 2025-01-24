@@ -1,1 +1,0 @@
-print("hier komen de api calls in")
