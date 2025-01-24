@@ -10,26 +10,25 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 
 # Update packages, install dependencies, and set up Node.js (v22) and Docker cli
-RUN install -m 0755 -d /etc/apt/keyrings && \
+RUN apt-get update && apt-get install -y ca-certificates curl && \
+    install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
     chmod a+r /etc/apt/keyrings/docker.asc && \
     # Add the repository to Apt sources:
     echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
     $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     # Update the package cache and install Docker CLI
+    apt-get update && apt-get install -y docker-ce-cli && \
     apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
     build-essential \
-    curl \
     wget \
     git \
     sudo \
     openssh-client \
-    ca-certificates \
     tzdata && \
-    docker-ce-cli && \
     # Install Node.js v22 (using Nodesource)
     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get install -y nodejs && \
