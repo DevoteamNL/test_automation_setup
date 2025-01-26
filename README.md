@@ -39,7 +39,7 @@ _Preview of running a test in headed mode using devcontainer environment and Pla
 - WSL version: 2.3.26.0
 - Verify with: `wsl -v`
 
-### WSL Linux distribution:
+### WSL Linux distribution
 
 - Ubuntu 24.04.1 LTS
 - Verify with: `cat /etc/os-release | grep PRETTY_NAME`
