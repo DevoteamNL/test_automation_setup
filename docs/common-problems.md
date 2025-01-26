@@ -62,3 +62,9 @@ Comment:
 ### Can't launch a new window through the container on Linux.
 
 Use the command `xhost +`. Though be aware of the [risks](https://stackoverflow.com/questions/63884968/why-is-xhost-considered-dangerous)
+
+### Can't see my tests in the Testing tab in VScode
+
+Make sure to do `npm install` in the root of the project.
+
+Click on refresh button to refresh for new tests

@@ -1,10 +1,14 @@
 # test-automation-toolset
 
-Toolset used for easy development of Playwright scripts. Utilizes the Devcontainer plugin in VScode for easy setup.
+Toolset used for easy development of Playwright scripts. Utilizes the Devcontainer plugin in VSCode for easy setup.
 
 Works on Windows and Linux (with some minor adjustments)
 
 Supports both Wayland and Xorg display forwarding windows spawned in the container.
+
+_Preview of running a test in headed mode using devcontainer environment and Playwright test for VSCode plugin. The window is spawned from within the container and displayed on the host computer._
+
+![preview](./docs/images/preview.png)
 
 ## Last tested versions
 
@@ -25,9 +29,9 @@ Supports both Wayland and Xorg display forwarding windows spawned in the contain
 
 - version 1.16.0
 
-### VScode version
+### VSCode version
 
-- VScode version: 1.96.4
+- VSCode version: 1.96.4
 - Decontainer plugin version: 0.394.0
 
 ### WSL version
